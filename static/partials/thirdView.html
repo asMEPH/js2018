@@ -1,0 +1,142 @@
+<div class=" bg col-sm-12">
+    <h4 class="text-center" style="margin: 7px"> Finał Mistrzostw RzKSz </h4>
+
+
+
+
+    <div class="row">
+        <!-- tu może być col-sm-6, col-md-6, col-lg-6 -->
+        <!--lewy panel (dodwanie uczestników)-->
+        <div class="col-lg-6 boxed">
+            <div class="card">
+                <div class="card-header">
+                    <h5> Dodaj uczestnika</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputImie" class="col-sm-3 col-form-label">Imię</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputImie"
+                                       ng-model="nImie" placeholder="Imię">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputNazwisko" class="col-sm-3 col-form-label">Nazwisko</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputNazwisko"
+                                       ng-model="nNazwisko" placeholder="Nazwisko">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputWynik" class="col-sm-3 col-form-label">Wynik</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputWynik"
+                                       ng-model="nWynik" placeholder="Wynik">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" ng-click="dodajUsera(nImie, nNazwisko, nWynik)"
+                                        class="btn btn-primary">Dodaj uczestnika</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+        </div>
+        <!-- Prawy panel: wyniki konkursu -->
+        <!-- Komentarze: Ctrl+/ -->
+        <div class="col-lg-6 boxed">
+
+            <div class="card">
+                <div class="card-header">
+                    <h5>Wyniki konkursu</h5>
+                </div>
+
+                <div class="card-body">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr class="table-light">
+                            <th width="30%"  class="clickable" ng-click="sortImie()"> Imię</th>
+                            <th width="30%"  class="clickable" ng-click="sortNazwisko()"> Nazwisko</th>
+                            <th width="10%"  class="clickable" ng-click="sortWynik()"> Wynik</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="u in uczestnicy">
+                            <td>{{u.imie}}</td>
+                            <td>{{u.nazwisko}}</td>
+                            <td>{{u.wynik}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="card-footer">
+                    Uczestników: {{userCount}}, średni wynik: {{avgScore}}, najlepszy wynik: {{bestScore}}
+                    <img ng-src="{{wybraneZdjecie}}" class="img-responsive" height="50" width="50"/>
+                    <img src="https://openclipart.org/download/275544/3_Silueta_REMIX_ALFIL_by-DG-RA.svg" class="img-responsive" height="50" width="50"/>
+                </div>
+            </div>
+
+
+
+
+            <div class="card">
+                <div class="card-header">
+                    Tablica wyników
+                </div>
+                <div class="card-body">
+                    {{uczestnicy}}
+                </div>
+            </div>
+
+
+
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h5>Pictures</h5>
+                </div>
+
+                <div class="card-body">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr class="table-light">
+                            <th width="30%"  class="clickable"> TYTUL </th>
+                            <th width="30%"  class="clickable" > URL </th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="p in pictures">
+                            <td>{{p.title}}</td>
+                            <td><img ng-src="{{p.thumbnailUrl}}" class="img-responsive" height="50" width="50"/></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

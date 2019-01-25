@@ -1,0 +1,5 @@
+
+
+... nie działa pod FFoxem na Win12
+
+-------
